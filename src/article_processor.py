@@ -8,13 +8,13 @@ from clean_content import clean_article_content
 from split_content import split_content_by_paragraph
 from get_prompt import get_prompt, select_style
 from ratelimit import limits, sleep_and_retry
-
-CLAUDE_API_KEY = "<CLAUDE_API_KEY>"
-MAX_CHUNK_SIZE = 1024  # 7b max input length is 2048
-MAX_TOKENS_TO_SAMPLE = 1024  
-CALLS = 60
-RATE_LIMIT = 60
-
+from config.settings import (
+    CLAUDE_API_KEY,
+    MODEL_NAME,
+    MAX_TOKENS_TO_SAMPLE,
+    CALLS,
+    RATE_LIMIT
+)
 
 client = anthropic.Anthropic(
     api_key=CLAUDE_API_KEY,

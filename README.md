@@ -5,12 +5,15 @@ This Python project is designed to preprocess and rewrite articles crawled from 
 ## Features
 
 - Cleans up boilerplate text (promotions, subscriptions, etc.) from original files
-- Chunks articles to respect the max input length of the target model (e.g., LLaMA 3 8B)
+- Chunks articles to respect the max input length of the target model
 - Rewrites article chunks using the Claude API in one of three styles:
   - Study Notes
   - K-12 Student Essay Draft
   - English Learner Writing Exercise
 - Provides options for cleaning only, rewriting only, or both operations
+- Prepares fine-tuning datasets by:
+  - Splitting data into training and validation sets
+  - Creating prompt-completion pairs from original and rewritten content
 
 ## Requirements
 
@@ -22,8 +25,8 @@ This Python project is designed to preprocess and rewrite articles crawled from 
 
 1. Clone this repository:
    ```
-   git clone https://github.com/gretayiiii/wbw_finetune.git
-   cd wbw_finetune
+   git clone https://github.com/liyi5895/wbw-finetune-dataset-prep.git
+   cd wbw-finetune-dataset-prep
    ```
 
 2. Install the required dependencies:
@@ -37,6 +40,8 @@ This Python project is designed to preprocess and rewrite articles crawled from 
    ```
 
 ## Usage
+
+### Article Processing
 
 The main script is `main.py`. It can be run with the following options:
 
@@ -52,6 +57,14 @@ python main.py /path/to/input /path/to/cleaned /path/to/rewritten --rewrite-only
 ```
 
 Replace `/path/to/input`, `/path/to/cleaned`, and `/path/to/rewritten` with the appropriate directories for your input files, cleaned output, and rewritten output respectively.
+
+### Fine-tuning Dataset Preparation
+
+After processing articles, use `prepare_finetune_data.py` to create the fine-tuning dataset:
+
+```bash
+python prepare_finetune_data.py /path/to/input_directory /path/to/output_directory
+```
 
 
 ## Configuration
