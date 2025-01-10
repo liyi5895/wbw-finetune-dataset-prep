@@ -4,16 +4,17 @@ import time
 import anthropic
 import argparse
 from urllib.parse import urlparse
-from clean_content import clean_article_content
-from split_content import split_content_by_paragraph
-from get_prompt import get_prompt, select_style
+from src.processors.content_cleaner import clean_article_content
+from src.processors.content_splitter import split_content_by_paragraph
+from src.prompts.prompt_generator import get_prompt, select_style
 from ratelimit import limits, sleep_and_retry
 from config.settings import (
     CLAUDE_API_KEY,
     MODEL_NAME,
     MAX_TOKENS_TO_SAMPLE,
     CALLS,
-    RATE_LIMIT
+    RATE_LIMIT,
+    MAX_CHUNK_SIZE
 )
 
 client = anthropic.Anthropic(
