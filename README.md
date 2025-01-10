@@ -1,4 +1,4 @@
-# wbw_finetune
+# wbw-finetune-dataset-prep
 
 This Python project is designed to preprocess and rewrite articles crawled from https://waitbutwhy.com/. It prepares the data for fine-tuning language models by cleaning the original content and rewriting it in various styles.
 
