@@ -43,17 +43,17 @@ This Python project is designed to preprocess and rewrite articles crawled from 
 
 ### Article Processing
 
-The main script is `main.py`. It can be run with the following options:
+The main script is `article_processor.py`. It can be run with the following options:
 
 ```bash
 # To run both cleaning and rewriting:
-python main.py /path/to/input /path/to/cleaned /path/to/rewritten
+python article_processor.py /path/to/input /path/to/cleaned /path/to/rewritten
 
 # To only clean articles:
-python main.py /path/to/input /path/to/cleaned /path/to/rewritten --clean-only
+python article_processor.py /path/to/input /path/to/cleaned /path/to/rewritten --clean-only
 
 # To only rewrite previously cleaned articles:
-python main.py /path/to/input /path/to/cleaned /path/to/rewritten --rewrite-only
+python article_processor.py /path/to/input /path/to/cleaned /path/to/rewritten --rewrite-only
 ```
 
 Replace `/path/to/input`, `/path/to/cleaned`, and `/path/to/rewritten` with the appropriate directories for your input files, cleaned output, and rewritten output respectively.
